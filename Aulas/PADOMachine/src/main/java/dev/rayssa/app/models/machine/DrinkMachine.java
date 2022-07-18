@@ -16,56 +16,85 @@ import java.util.Set;
 
 public class DrinkMachine {
 
-    private List<HotDrinkMachine> machine = new ArrayList<>();
-
+    private final List<HotDrinkMachine> machines = List.of(
+            new CoffeeMachine(),
+            new ChocolateMachine(),
+            new TeaMachine());
     public DrinkMachine() {
-
-//         Set<Class<? extends HotDrinkMachine >> classes = new Reflections("dev.rayssa.app").getSubTypesOf(HotDrinkMachine.class);
-//        classes.forEach(aClass -> {
-//            System.out.println(aClass.getSimpleName());
-//        });
-
-        CoffeeMachine coffeeMachine = new CoffeeMachine();
-        TeaMachine teaMachine = new TeaMachine();
-        machine.add(coffeeMachine);
-        machine.add(teaMachine);
-
     }
 
-    public void prapare() throws IOException {
-        System.out.println("Escolha sua bebida");
-        System.out.println("0. Coffee");
-        System.out.println("1. Tea");
-        System.out.println("Escolha: ");
+    public void prepare() throws IOException {
+        System.out.println("Escolha sua Bebida!");
+        for (int i = 0; i < machines.size(); i++) {
+            System.out.println(i + ". " + machines.get(i).getClass().getSimpleName().replace("Machine", ""));
+        }
+        System.out.print("Escolha: ");
 
-//        for (int i = 0; i < machine.size(); i++) {
-//
-//            System.out.println(machine.get(i).ge);
-//
-//        }
-
-        while (true) {
-
+        while (true)
+        {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             int valor = Integer.parseInt(reader.readLine());
-            System.out.println("Valor informado pelo usaário:" + valor);
-
-            if(valor <= machine.size() && valor >= 0) {
-                HotDrink hotDrink = this.machine.get(valor).makeDrink();
+            System.out.println("Valor informado pelo usuário: " + valor);
+            if(valor < machines.size() && valor >= 0) {
+                HotDrink hotDrink = this.machines.get(valor).makeDrink();
                 System.out.println(hotDrink);
-                System.out.println("#########################################");
+                System.out.println("///////////////////////////////////////////////////");
+                System.out.print("Escolha: ");
             }else {
                 System.out.println("Opção não disponivel, tente novamente!");
-                System.out.println("0. Coffee");
-                System.out.println("1. Tea");
-                System.out.println("Escolha: ");
             }
         }
-
-//        for (int i = 0; i < this.machine.size(); i++) {
-//            HotDrink hotDrink = machine.get(i).makeDrink();
-//
-//            System.out.println(hotDrink);
-// }
     }
+//    private List<HotDrinkMachine> machine = new ArrayList<>();
+//
+//    public DrinkMachine() {
+//
+////         Set<Class<? extends HotDrinkMachine >> classes = new Reflections("dev.rayssa.app").getSubTypesOf(HotDrinkMachine.class);
+////        classes.forEach(aClass -> {
+////            System.out.println(aClass.getSimpleName());
+////        });
+//
+//        CoffeeMachine coffeeMachine = new CoffeeMachine();
+//        TeaMachine teaMachine = new TeaMachine();
+//        machine.add(coffeeMachine);
+//        machine.add(teaMachine);
+//
+//    }
+//
+//    public void prapare() throws IOException {
+//        System.out.println("Escolha sua bebida");
+//        System.out.println("0. Coffee");
+//        System.out.println("1. Tea");
+//        System.out.println("Escolha: ");
+//
+////        for (int i = 0; i < machine.size(); i++) {
+////
+////            System.out.println(machine.get(i).ge);
+////
+////        }
+//
+//        while (true) {
+//
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//            int valor = Integer.parseInt(reader.readLine());
+//            System.out.println("Valor informado pelo usaário:" + valor);
+//
+//            if(valor <= machine.size() && valor >= 0) {
+//                HotDrink hotDrink = this.machine.get(valor).makeDrink();
+//                System.out.println(hotDrink);
+//                System.out.println("#########################################");
+//            }else {
+//                System.out.println("Opção não disponivel, tente novamente!");
+//                System.out.println("0. Coffee");
+//                System.out.println("1. Tea");
+//                System.out.println("Escolha: ");
+//            }
+//        }
+//
+////        for (int i = 0; i < this.machine.size(); i++) {
+////            HotDrink hotDrink = machine.get(i).makeDrink();
+////
+////            System.out.println(hotDrink);
+//// }
+//    }
 }
