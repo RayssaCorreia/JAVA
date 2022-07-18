@@ -15,9 +15,9 @@ import java.security.Signature;
 public class MainApp {
 
     public static void main(String[] args) throws IOException {
-
         DrinkMachine drinkMachine = new DrinkMachine();
-        drinkMachine.prapare();
+        drinkMachine.prepare();
+    }
 
 //        while (true){
 //            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -45,4 +45,4 @@ public class MainApp {
 //    System.out.println(coffee);
 
     }
-}
+

@@ -1,19 +1,12 @@
 package dev.rayssa.app.models.products;
 
-public class Coffee implements HotDrink{
+import dev.rayssa.app.configurations.CONSTANTS;
 
-    private int quantity = 3;
-    private int temperature = 3;
-    private int sugar = 3;
+public class Coffee extends HotDrink{
 
-    public Coffee(){}
+    public Coffee(){
 
-    @Override
-    public String toString() {
-        return "COFFEE {" +
-                "\"quantity\":" +  quantity +
-                ",\"temperature\":" + temperature +
-                ",\"sugar\":" + sugar +
-                "}";
+        super(CONSTANTS.COFFEE_DEFAULT);
     }
+
 }
